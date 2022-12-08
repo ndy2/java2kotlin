@@ -50,7 +50,7 @@ class BookService(
     }
 
     fun getBookStatistics(): List<BookStatResponse> {
-        val results = bookRepository.getBookStatistics().toMutableList()
+        val results = bookRepository.getStats().toMutableList()
         BookType.values()
             .filterNot { type -> results.map { it.type }.contains(type) }
             .forEach { results.add(BookStatResponse(it, 0L)) }

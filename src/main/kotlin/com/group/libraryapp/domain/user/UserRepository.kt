@@ -9,9 +9,9 @@ interface UserRepository : JpaRepository<User, Long>{
 
     //@formatter:off
     @Query(
-        "select u " +
+        "select distinct u " +
         "from User u " +
-        "left join u.userLoanHistories "
+        "left join fetch u.userLoanHistories "
     )
     //@formatter:on
     fun findAllWithUserLoanHistories() : List<User>

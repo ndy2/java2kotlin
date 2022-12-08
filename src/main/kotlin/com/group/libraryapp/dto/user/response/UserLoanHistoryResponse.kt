@@ -29,7 +29,7 @@ data class BookHistoryResponse(
         fun of(entity: UserLoanHistory): BookHistoryResponse {
             return BookHistoryResponse(
                 entity.bookName,
-                entity.status == UserLoanStatus.RETURNED,
+                entity.isReturn,
             )
         }
     }
